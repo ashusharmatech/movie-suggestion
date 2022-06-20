@@ -20,13 +20,11 @@ function App() {
 
   const API_KEY = process.env.REACT_APP_API_KEY
 
-  const TRANDING_URL = "https://api.themoviedb.org/3/trending/movie/week?api_key="+API_KEY+"&page=" + random(10);
-  const GENRE_URL = "https://api.themoviedb.org/3/genre/movie/list?api_key="+API_KEY+"&language=en-US";
-
   const [movie, setMovie] = useState();
   const [genreMap, setGenreMap] = useState();
   const getMovie = () => {
-    axios.get(TRANDING_URL)
+    let tranding_url = "https://api.themoviedb.org/3/trending/movie/week?api_key="+API_KEY+"&page=" + random(10);
+    axios.get(tranding_url)
       .then(res => {
         console.log(res.data);
         let movieList = res.data.results;
@@ -43,7 +41,8 @@ function App() {
 
 
   useEffect(() => {
-    axios.get(GENRE_URL)
+    let genre_url = "https://api.themoviedb.org/3/genre/movie/list?api_key="+API_KEY+"&language=en-US";
+    axios.get(genre_url)
       .then(res => {
         setGenreMap(res.data.genres);
       })
