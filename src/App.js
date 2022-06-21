@@ -46,6 +46,7 @@ function App() {
       .then(res => {
         setGenreMap(res.data.genres);
       })
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 
