@@ -25,7 +25,7 @@ const Movie = ({ data, getGenre }) => {
         justifyContent={'center'}>
         <Box
           h={'350px'}
-          bg={'gray.100'}
+          bg={useColorModeValue('white', 'gray.900')}
           mt={-6}
           mx={-6}
           mb={6}
@@ -71,11 +71,11 @@ const Movie = ({ data, getGenre }) => {
             <Text
               fontFamily={'heading'}
               fontSize={'3xl'}
-              color={useColorModeValue('gray.400', 'gray.900')}
+              color={useColorModeValue('blue.400', 'blue.100')}
               mb={3}>
               {data.popularity}
             </Text>
-            <Text fontSize={'xl'} color={useColorModeValue('gray.500', 'gray.800')}>
+            <Text fontSize={'xl'} color={useColorModeValue('blue.400', 'blue.100' )}>
               Popularity
             </Text>
           </Box>
@@ -83,11 +83,11 @@ const Movie = ({ data, getGenre }) => {
             <Text
               fontFamily={'heading'}
               fontSize={'3xl'}
-              color={useColorModeValue('gray.400', 'gray.900')}
+              color={useColorModeValue('blue.400', 'blue.100')}
               mb={3}>
               {data.vote_count}
             </Text>
-            <Text fontSize={'xl'} color={useColorModeValue('gray.500', 'gray.800')}>
+            <Text fontSize={'xl'} color={useColorModeValue('blue.400', 'blue.100')}>
               Vote count
             </Text>
           </Box>
@@ -95,11 +95,11 @@ const Movie = ({ data, getGenre }) => {
             <Text
               fontFamily={'heading'}
               fontSize={'3xl'}
-              color={useColorModeValue('gray.400', 'gray.900')}
+              color={useColorModeValue('blue.400', 'blue.100')}
               mb={3}>
               {data.release_date}
             </Text>
-            <Text fontSize={'xl'} color={useColorModeValue('gray.500', 'gray.800')}>
+            <Text fontSize={'xl'} color={useColorModeValue('blue.400', 'blue.100')}>
               Relese Date
             </Text>
           </Box>
@@ -107,11 +107,11 @@ const Movie = ({ data, getGenre }) => {
             <Text
               fontFamily={'heading'}
               fontSize={'3xl'}
-              color={useColorModeValue('gray.400', 'gray.900')}
+              color={useColorModeValue('blue.400', 'blue.100')}
               mb={3}>
               {data.vote_average}
             </Text>
-            <Text fontSize={'xl'} color={useColorModeValue('gray.500', 'gray.800')}>
+            <Text fontSize={'xl'} color={useColorModeValue('blue.400', 'blue.100')}>
               Vote Average
             </Text>
           </Box>
