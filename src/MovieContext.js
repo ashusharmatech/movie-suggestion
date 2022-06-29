@@ -1,87 +1,53 @@
-import {createContext, useState, useEffect} from 'react'
+import { createContext, useState, useEffect } from 'react'
+import axios from 'axios';
 
-const FeedBackContext = createContext()
+const MovieContext = createContext()
 
-export const MovieProvider = ({children}) => {
+export const MovieProvider = ({ children }) => {
 
-    const [isLoading, setLoading] = useState(true)
+    const MOVIE_API = "https://api.themoviedb.org/3";
+	const API_KEY = process.env.REACT_APP_API_KEY;
+    const [isLoading, setLoading] = useState(true);
+    const [randomMovie, setRandomMovie] = useState();
+    const [genreList, setGenreList] = useState([]);
 
     useEffect(() => {
-
+        getGenreList();
     }, [])
 
+    const random = (maxNumber) => {
+		return Math.floor(Math.random() * maxNumber) + 1;
+	};
+
     //Fetch a Movie
-
-    const fetchFeedBack = async () => {
-        const response = await fetch(`/movie`)
-        const data = await response.json()
-        setLoading(false)
+    const getRandomTrendingMovie = () => {
+        let tranding_url = MOVIE_API+'/trending/movie/week?api_key=' + API_KEY + '&page=' + random(10);
+		axios.get(tranding_url).then((res) => {
+			console.log(res.data);
+			let movieList = res.data.results;
+			let movie = movieList[random(movieList.length)];
+			setRandomMovie(movie);
+		});
     }
 
-    const [feedBackEdit, setFeedBackEdit] = useState({
-        item: {},
-        edit: false
-    })
-
-    //Add Movie
-    const addMovie = async (newMovie) => {
-
-        const response = await fetch('/movie', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newMovie)
-        })
-
-        const data = await response.json()
-        setFeedBack([data, ...movie])
+    const getGenreList = () => {
+        let genre_url =  MOVIE_API+'/genre/movie/list?api_key=' + API_KEY + '&language=en-US';
+		axios.get(genre_url).then((res) => {
+			setGenreList(res.data.genres);
+		});
     }
 
-    //Delete Movie
-    const deleteMovie = async (id) => {
-        if (window.confirm('Are you sure you want to delete ?')) {
 
-            await fetch(`/movie/${id}`, {'method': 'DELETE'})
+    return <MovieContext.Provider value={{
+        isLoading,
+        getRandomTrendingMovie,
+        randomMovie,
+        getGenreList,
+        genreList
 
-            setFeedBack(movie.filter((item) => item.id !== id))
-        }
-    }
-
-    //Edit movie
-    const editMovie = (item) => {
-        setFeedBackEdit({
-            item,
-            edit: true
-        })
-    }
-
-    //Update movie item
-
-    const updateMovie = async (id, updateItem) => {
-        const response = await fetch(`/movie/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(updateItem)
-        })
-        const data = await response.json()
-
-        setFeedBack(movie.map((item) => item.id === id ? {...item, ...data} : item))
-    }
-
-    return <FeedBackContext.Provider value={{
-        movie,
-        deleteMovie,
-        addMovie,
-        editMovie,
-        feedBackEdit,
-        updateMovie,
-        isLoading
     }}>
         {children}
-    </FeedBackContext.Provider>
+    </MovieContext.Provider>
 }
 
-export default FeedBackContext
+export default MovieContext
