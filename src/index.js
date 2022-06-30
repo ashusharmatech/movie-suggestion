@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(container);
 root.render(
   <>
     <ColorModeScript />
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <App />
     </BrowserRouter>
   </>
