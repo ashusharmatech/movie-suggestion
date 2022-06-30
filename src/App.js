@@ -11,6 +11,7 @@ import Popular from './container/Popular';
 import Search from './container/Search';
 import { MovieProvider } from './MovieContext';
 import TopRated from './container/TopRated';
+import Upcoming from './container/Upcoming';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/popular" element={<Popular />} />
           <Route exact path="/search" element={<Search />} />
           <Route exact path="/home" element={<Home />} />
+          <Route exact path="/upcoming" element={<Upcoming />} />
           <Route exact path="/" element={<Home />} />
         </Routes>
       </ChakraProvider>

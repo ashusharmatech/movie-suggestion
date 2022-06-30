@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import MovieContext from '../MovieContext';
+import MovieList from './MovieList';
 
 const Popular = () => {
-  return (
-    <div>Popular</div>
-  )
-}
+	const { getPopularMovies } = useContext(MovieContext);
 
-export default Popular
+	return <MovieList getMovie={getPopularMovies} />;
+};
+
+export default Popular;

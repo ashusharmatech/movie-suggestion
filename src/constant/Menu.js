@@ -5,11 +5,15 @@ export const NAV_ITEMS = [
 		href: '/popular'
 	},
 	{
-		label: 'Random',
-		href: '/'
-	},
-	{
 		label: 'Top Rated',
 		href: '/top'
+	},
+	{
+		label: 'Upcoming',
+		href: '/upcoming'
+	},
+	{
+		label: 'Random',
+		href: '/'
 	}
 ];

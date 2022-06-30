@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import React, { useContext } from 'react';
 import { Box, Grid, VStack, Heading, Button, Text } from '@chakra-ui/react';
 import Movie from '../Movie';
 import _ from 'lodash';
