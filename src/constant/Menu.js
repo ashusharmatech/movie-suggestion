@@ -7,5 +7,9 @@ export const NAV_ITEMS = [
 	{
 		label: 'Random',
 		href: '/'
+	},
+	{
+		label: 'Top Rated',
+		href: '/top'
 	}
 ];

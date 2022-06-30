@@ -10,6 +10,8 @@ export const MovieProvider = ({ children }) => {
     const [isLoading, setLoading] = useState(true);
     const [randomMovie, setRandomMovie] = useState();
     const [genreList, setGenreList] = useState([]);
+    const [movieList, setMovieList] = useState([]);
+    const [page, setPage] = useState(1);
 
     useEffect(() => {
         getGenreList();
@@ -23,7 +25,6 @@ export const MovieProvider = ({ children }) => {
     const getRandomTrendingMovie = () => {
         let tranding_url = MOVIE_API+'/trending/movie/week?api_key=' + API_KEY + '&page=' + random(10);
 		axios.get(tranding_url).then((res) => {
-			console.log(res.data);
 			let movieList = res.data.results;
 			let movie = movieList[random(movieList.length)];
 			setRandomMovie(movie);
@@ -37,13 +38,30 @@ export const MovieProvider = ({ children }) => {
 		});
     }
 
+    const getTopRatedMovies = () => {
+        setLoading(true);
+        let top_rated_url =  MOVIE_API+'/movie/top_rated?api_key=' + API_KEY + '&language=en-US&page=' + page;
+		axios.get(top_rated_url).then((res) => {
+            if(movieList === null){
+                setMovieList([...res.data.results])
+            }
+            else{
+                setMovieList(movieList => [...movieList, ...res.data.results]);
+            }
+            setPage(page+1);
+            setLoading(false);
+		});
+    }
 
     return <MovieContext.Provider value={{
         isLoading,
         getRandomTrendingMovie,
         randomMovie,
         getGenreList,
-        genreList
+        genreList,
+        movieList,
+        isLoading,
+        getTopRatedMovies
 
     }}>
         {children}

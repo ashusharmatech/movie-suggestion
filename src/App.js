@@ -10,6 +10,7 @@ import Home from './container/Home';
 import Popular from './container/Popular';
 import Search from './container/Search';
 import { MovieProvider } from './MovieContext';
+import TopRated from './container/TopRated';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <ChakraProvider theme={theme}>
         <Navbar></Navbar>
         <Routes>
+          <Route exact path="/top" element={<TopRated />} />
           <Route exact path="/popular" element={<Popular />} />
           <Route exact path="/search" element={<Search />} />
           <Route exact path="/home" element={<Home />} />
