@@ -5,7 +5,7 @@ import MovieList from './MovieList';
 
 const TopRated = () => {
 	const { getTopRatedMovies } = useContext(MovieContext);
-	return <MovieList getMovie={getTopRatedMovies} />;	
+	return <MovieList title="Top Rated Movies" getMovie={getTopRatedMovies} />;	
 };
 
 export default TopRated;

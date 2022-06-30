@@ -5,7 +5,7 @@ import MovieList from './MovieList';
 const Popular = () => {
 	const { getPopularMovies } = useContext(MovieContext);
 
-	return <MovieList getMovie={getPopularMovies} />;
+	return <MovieList title="Popular Movies"  getMovie={getPopularMovies} />;
 };
 
 export default Popular;
