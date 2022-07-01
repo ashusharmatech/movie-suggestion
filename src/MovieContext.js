@@ -11,7 +11,6 @@ export const MovieProvider = ({ children }) => {
     const [randomMovie, setRandomMovie] = useState();
     const [genreList, setGenreList] = useState([]);
     const [movieList, setMovieList] = useState([]);
-    const [page, setPage] = useState(1);
 
     useEffect(() => {
         getGenreList();
@@ -34,8 +33,6 @@ export const MovieProvider = ({ children }) => {
 
     const clean = () => {
         console.log("Clean started ")
-
-        setPage(1);
         setMovieList([]);
         console.log("Clean complete ")
     }
@@ -63,8 +60,17 @@ export const MovieProvider = ({ children }) => {
         
     }
 
+    const getNowPlayingMovies = (pageNo) => {
+        let url = MOVIE_API + '/movie/now_playing?api_key=' + API_KEY + '&language=en-US&page=' + pageNo;
+        getMovies(url, pageNo);
+    }
+
+    const getLatestMovies = (pageNo) => {
+        let url = MOVIE_API + '/movie/latest?api_key=' + API_KEY + '&language=en-US&page=' + pageNo;
+        getMovies(url, pageNo);
+    }
+
     const getMovies = (url, pageNo) => {
-        console.log("getPopularMovies started ")
         setLoading(true);
         axios.get(url).then((res) => {
             if (movieList === null) {
@@ -74,7 +80,6 @@ export const MovieProvider = ({ children }) => {
                 setMovieList(movieList => [...movieList, ...res.data.results]);
             }
             setLoading(false);
-            console.log("getPopularMovies completed ")
         });
     }
 
@@ -89,8 +94,9 @@ export const MovieProvider = ({ children }) => {
         getTopRatedMovies,
         getPopularMovies,
         getUpcomingMovies,
-        clean,
-        setPage
+        getNowPlayingMovies,
+        getLatestMovies,
+        clean
     }}>
         {children}
     </MovieContext.Provider>

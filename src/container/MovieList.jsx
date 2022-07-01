@@ -3,6 +3,7 @@ import {
 	Button,
 	Grid,
 	Heading,
+	Spinner,
 	Table,
 	TableCaption,
 	TableContainer,
@@ -19,7 +20,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import MovieContext from '../MovieContext';
 import MovieRow from './MovieRow';
 
-const MovieList = ({title,  getMovie }) => {
+const MovieList = ({ title, getMovie }) => {
 	const { movieList, isLoading, clean } = useContext(MovieContext);
 
 	const [ pageNo, setPageNo ] = useState(1);
@@ -44,37 +45,43 @@ const MovieList = ({title,  getMovie }) => {
 							{title}
 						</Text>
 					</Heading>
-					<TableContainer>
-						<Table variant="simple" colorScheme="pink" maxWidth="70%" align="center" size="sm">
-							<TableCaption>
-								<Button onClick={loadMore}>Load more</Button>
-							</TableCaption>
-							<Thead>
-								<Tr>
-									<Th>No</Th>
-									<Th>Title</Th>
-									<Th>Relese Date</Th>
-									<Th>Genres</Th>
-									<Th isNumeric>Vote Average</Th>
-								</Tr>
-							</Thead>
-							<Tbody>
-								{!isLoading &&
-									movieList.map(function(movie, i) {
-										return <MovieRow movie={movie} index={i + 1} key={i} />;
-									})}
-							</Tbody>
-							<Tfoot>
-								<Tr>
-									<Th>No</Th>
-									<Th>Title</Th>
-									<Th>Relese Date</Th>
-									<Th>Genres</Th>
-									<Th isNumeric>Vote Average</Th>
-								</Tr>
-							</Tfoot>
-						</Table>
-					</TableContainer>
+					{isLoading && (
+						<Spinner thickness="4px" speed="0.65s" emptyColor="gray.200" color="blue.500" size="xl" />
+					)}
+					{!isLoading && (
+						<TableContainer>
+							<Table variant="simple" colorScheme="pink" maxWidth="70%" align="center" size="sm">
+								<TableCaption>
+									<Button onClick={loadMore}>Load more</Button>
+								</TableCaption>
+								<Thead>
+									<Tr>
+										<Th>No</Th>
+										<Th>Title</Th>
+										<Th>Relese Date</Th>
+										<Th>Genres</Th>
+										<Th isNumeric>Vote Average</Th>
+									</Tr>
+								</Thead>
+								<Tbody>
+									{
+										movieList.map(function(movie, i) {
+											return <MovieRow movie={movie} index={i + 1} key={i} />;
+										})
+									}
+								</Tbody>
+								<Tfoot>
+									<Tr>
+										<Th>No</Th>
+										<Th>Title</Th>
+										<Th>Relese Date</Th>
+										<Th>Genres</Th>
+										<Th isNumeric>Vote Average</Th>
+									</Tr>
+								</Tfoot>
+							</Table>
+						</TableContainer>
+					)}
 				</VStack>
 			</Grid>
 		</Box>

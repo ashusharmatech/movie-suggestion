@@ -3,7 +3,6 @@ import {
   ChakraProvider,
   theme
 } from '@chakra-ui/react';
-import _ from 'lodash';
 import Navbar from './component/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import Home from './container/Home';
@@ -12,6 +11,7 @@ import Search from './container/Search';
 import { MovieProvider } from './MovieContext';
 import TopRated from './container/TopRated';
 import Upcoming from './container/Upcoming';
+import NowPlaying from './container/NowPlaying';
 
 function App() {
   return (
@@ -24,6 +24,8 @@ function App() {
           <Route exact path="/search" element={<Search />} />
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/upcoming" element={<Upcoming />} />
+          <Route exact path="/now_playing" element={<NowPlaying />} />
+
           <Route exact path="/" element={<Home />} />
         </Routes>
       </ChakraProvider>

@@ -13,6 +13,10 @@ export const NAV_ITEMS = [
 		href: '/upcoming'
 	},
 	{
+		label: 'Now Playing',
+		href: '/now_playing'
+	},
+	{
 		label: 'Random',
 		href: '/'
 	}
