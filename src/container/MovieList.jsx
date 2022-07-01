@@ -8,7 +8,6 @@ import {
 	TableCaption,
 	TableContainer,
 	Tbody,
-	Td,
 	Text,
 	Tfoot,
 	Th,
@@ -64,11 +63,9 @@ const MovieList = ({ title, getMovie }) => {
 									</Tr>
 								</Thead>
 								<Tbody>
-									{
-										movieList.map(function(movie, i) {
-											return <MovieRow movie={movie} index={i + 1} key={i} />;
-										})
-									}
+									{movieList.map(function(movie, i) {
+										return <MovieRow movie={movie} index={i + 1} key={i} />;
+									})}
 								</Tbody>
 								<Tfoot>
 									<Tr>

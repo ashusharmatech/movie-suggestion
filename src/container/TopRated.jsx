@@ -1,5 +1,4 @@
-import { Box, Button, Grid, Table, TableCaption, TableContainer, Tbody, Td, Text, Tfoot, Th, Thead, Tr } from '@chakra-ui/react';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import MovieContext from '../MovieContext';
 import MovieList from './MovieList';
 

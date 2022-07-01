@@ -90,7 +90,6 @@ export const MovieProvider = ({ children }) => {
         getGenreList,
         genreList,
         movieList,
-        isLoading,
         getTopRatedMovies,
         getPopularMovies,
         getUpcomingMovies,

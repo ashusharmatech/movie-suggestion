@@ -13,7 +13,6 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';
-import { NAV_ITEMS } from '../constant/Menu';
 
 export default function WithSubnavigation() {
 	const { isOpen, onToggle } = useDisclosure();
