@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/movie-suggestion/static/js/main.76d7511d.js",
+    "main.js": "/movie-suggestion/static/js/main.5f9ac830.js",
     "index.html": "/movie-suggestion/index.html",
-    "main.76d7511d.js.map": "/movie-suggestion/static/js/main.76d7511d.js.map"
+    "main.5f9ac830.js.map": "/movie-suggestion/static/js/main.5f9ac830.js.map"
   },
   "entrypoints": [
-    "static/js/main.76d7511d.js"
+    "static/js/main.5f9ac830.js"
   ]
 }
