@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import MovieContext from '../MovieContext';
-import MoviePage from './MoviePage';
+import MovieContext from '../../MovieContext';
+import MoviePage from '../MoviePage';
 
 const Popular = () => {
 	const { getPopularMovies } = useContext(MovieContext);

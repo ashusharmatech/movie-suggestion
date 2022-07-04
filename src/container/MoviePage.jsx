@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import MovieCard from '../component/MovieCard';
 import MovieContext from '../MovieContext';
 
-const MoviePage = ({ title, getMovie }) => {
+const MoviePage = ({ title, getMovie , type = "MOVIE"}) => {
 	const { movieList, clean } = useContext(MovieContext);
 	const [ pageNo, setPageNo ] = useState(1);
 
@@ -27,8 +27,8 @@ const MoviePage = ({ title, getMovie }) => {
 					<Grid templateColumns="repeat(auto-fit, minmax(250px, 1fr) )" gap={4}>
 						{movieList &&
 							movieList.map((movie, i) => (
-								<GridItem>
-									<MovieCard data={movie} key={i} />
+								<GridItem key={i}>
+									<MovieCard data={movie} key={i} type={type}/>
 								</GridItem>
 							))}
 					</Grid>

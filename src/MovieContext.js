@@ -83,6 +83,33 @@ export const MovieProvider = ({ children }) => {
         });
     }
 
+    const getLatestTv = (pageNo) => {
+        let url = MOVIE_API + '/tv/latest?api_key=' + API_KEY + '&language=en-US&page=' + pageNo;
+        getMovies(url, pageNo);
+    }
+
+
+    const getAiringTodayTv = (pageNo) => {
+        let url = MOVIE_API + '/tv/airing_today?api_key=' + API_KEY + '&language=en-US&page=' + pageNo;
+        getMovies(url, pageNo);
+    }
+
+    const getOnTheAirTv = (pageNo) => {
+        let url = MOVIE_API + '/tv/on_the_air?api_key=' + API_KEY + '&language=en-US&page=' + pageNo;
+        getMovies(url, pageNo);
+    }
+
+    const getPopularTv = (pageNo) => {
+        let url = MOVIE_API + '/tv/popular?api_key=' + API_KEY + '&language=en-US&page=' + pageNo;
+        getMovies(url, pageNo);
+        
+    }
+
+    const getTopRatedTv = (pageNo) => {
+        let url = MOVIE_API + '/tv/top_rated?api_key=' + API_KEY + '&language=en-US&page=' + pageNo;
+        getMovies(url, pageNo);
+    }
+
     return <MovieContext.Provider value={{
         isLoading,
         getRandomTrendingMovie,
@@ -95,6 +122,11 @@ export const MovieProvider = ({ children }) => {
         getUpcomingMovies,
         getNowPlayingMovies,
         getLatestMovies,
+        getLatestTv,
+        getAiringTodayTv,
+        getOnTheAirTv,
+        getPopularTv,
+        getTopRatedTv,
         clean
     }}>
         {children}

@@ -8,10 +8,14 @@ import {
 	Image,
 	useColorModeValue
 } from '@chakra-ui/react';
-import _ from 'lodash';
 import React from 'react';
 
-const MovieCard = ({ data }) => {
+const MovieCard = ({ data ,type }) => {
+
+	let title = data['title']?data['title']:data['original_title'];
+	if(type === "TV"){
+		title = data['original_name']
+	}
 	return (
 		<Box
 			maxW={'250px'}
@@ -21,7 +25,7 @@ const MovieCard = ({ data }) => {
 			rounded={'lg'}
 			overflow={'hidden'}
 			_hover={{ bg: useColorModeValue('gray.300', 'gray.700') }}
-
+			alignContent={'center'}
 		>
 			<Image objectFit="cover" boxSize="100%" src={'https://image.tmdb.org/t/p/original' + data.poster_path} />
 			<Flex justify={'center'} mt={-5}>
@@ -36,7 +40,7 @@ const MovieCard = ({ data }) => {
 				</CircularProgress>
 			</Flex>
 			<Heading fontSize={'m'} fontFamily={'body'}>
-				{data['original_title']}
+				{title}
 			</Heading>
 			<Heading fontSize={'sm'} fontFamily={'body'}>
 				{data['release_date']}

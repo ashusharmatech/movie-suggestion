@@ -1,25 +1,44 @@
+import { NowPlaying, Popular, TopRated, Upcoming } from "../container/movies";
 
 export const NAV_ITEMS = [
 
 	{
 		label: 'Movies',
 		children: [
-
 			{
 				label: 'Popular',
-				href: '/popular'
+				href: '/movie/popular'
 			},
 			{
 				label: 'Top Rated',
-				href: '/top'
+				href: '/movie/top_rated'
 			},
 			{
 				label: 'Upcoming',
-				href: '/upcoming'
+				href: '/movie/upcoming'
 			},
 			{
 				label: 'Now Playing',
-				href: '/now_playing'
+				href: '/movie/now_playing'
+			}]
+	}, {
+		label: 'TV',
+		children: [
+			{
+				label: 'Popular',
+				href: '/tv/popular'
+			},
+			{
+				label: 'Top Rated',
+				href: '/tv/top_rated'
+			},
+			{
+				label: 'Arriving Today',
+				href: '/tv/arriving_today'
+			},
+			{
+				label: 'On Air Today',
+				href: '/tv/on_air_today'
 			}]
 	},
 	{
