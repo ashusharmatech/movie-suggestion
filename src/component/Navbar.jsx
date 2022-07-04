@@ -7,12 +7,15 @@ import {
 	Collapse,
 	useColorModeValue,
 	useBreakpointValue,
-	useDisclosure
+	useDisclosure, Image
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';
+import React from "react";
+import Logo from './Logo';
+
 
 export default function WithSubnavigation() {
 	const { isOpen, onToggle } = useDisclosure();
@@ -38,13 +41,7 @@ export default function WithSubnavigation() {
 					/>
 				</Flex>
 				<Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-					<Text
-						textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-						fontFamily={'heading'}
-						color={useColorModeValue('gray.800', 'white')}
-					>
-						MovieSphere
-					</Text>
+					<Logo></Logo>
 
 					<Flex display={{ base: 'none', md: 'flex' }} ml={10}>
 						<DesktopNav/>

@@ -19,7 +19,7 @@ const MoviePage = ({ title, getMovie , type = "MOVIE"}) => {
 	};
 
 	return (
-		<Box textAlign="center" fontSize="xl">
+		<Box textAlign="center" fontSize="xl" pb={10}>
 			<Grid minH="100vh" p={3}>
 				<Stack spacing={8}>
 					<Heading fontWeight={600} fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}>

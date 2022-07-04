@@ -4,6 +4,8 @@ import {
   theme
 } from '@chakra-ui/react';
 import Navbar from './component/Navbar';
+import Footer from './component/Footer';
+
 import { Route, Routes } from 'react-router-dom';
 import Home from './container/Home';
 import { MovieProvider } from './MovieContext';
@@ -30,6 +32,7 @@ function App() {
           <Route exact path="/movie/now_playing" element={<NowPlaying />} />
           <Route exact path="/" element={<Home  />} />
         </Routes>
+        <Footer></Footer>
       </ChakraProvider>
     </MovieProvider>
   );
