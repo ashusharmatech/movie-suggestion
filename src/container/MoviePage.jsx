@@ -10,6 +10,7 @@ const MoviePage = ({ title, getMovie , type = "MOVIE"}) => {
 	useEffect(() => {
 		clean();
 		getMovie(pageNo);
+		setPageNo(pageNo + 1);
 	}, []);
 
 	const loadMore = () => {
