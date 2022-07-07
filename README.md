@@ -20,3 +20,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ![Chakra](https://img.shields.io/badge/chakra-%234ED1C5.svg?style=for-the-badge&logo=chakraui&logoColor=white) 
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) 
 
+
+
+[![GitHub issues](https://img.shields.io/github/issues/ashusharmatech/movie-suggestion?style=for-the-badge)](https://github.com/ashusharmatech/movie-suggestion/issues)
+[![GitHub forks](https://img.shields.io/github/forks/ashusharmatech/movie-suggestion?style=for-the-badge)](https://github.com/ashusharmatech/movie-suggestion/network)
+[![GitHub stars](https://img.shields.io/github/stars/ashusharmatech/movie-suggestion?style=for-the-badge)](https://github.com/ashusharmatech/movie-suggestion/stargazers)
+[![GitHub license](https://img.shields.io/github/license/ashusharmatech/movie-suggestion?style=for-the-badge)](https://github.com/ashusharmatech/movie-suggestion/blob/main/LICENSE)
